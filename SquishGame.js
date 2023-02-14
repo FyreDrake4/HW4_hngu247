@@ -119,8 +119,8 @@ function draw() {
             text("Bug Squish Game", 400, 300);
             textSize(30);
             text("Press Any Key to Start", 400, 370);
-            textSize(15);
-            text("Avoid the Imposter", 400, 450);
+            textSize(25);
+            text("Avoid the Imposter!", 400, 420);
             break;
     }
 }
