@@ -227,10 +227,10 @@ class WalkingAnimation {
         }
 
         if (this.vertical) {
-            this.dy += this.moving * this.speed * (game.squished * 0.15 + 1);
+            this.dy += this.moving * this.speed * (game.squished * 0.18 + 1);
             this.move(this.dy, this.sw, height - this.sw);
         } else {
-            this.dx += this.moving * this.speed * (game.squished * 0.15 + 1);
+            this.dx += this.moving * this.speed * (game.squished * 0.18 + 1);
             if (this.spritesheet === spriteSheets[0]) {
                 this.move(this.dx, this.sw - 80, width - this.sw + 80);
             } else {
