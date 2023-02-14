@@ -91,9 +91,9 @@ function draw() {
             }
             fill(255);
             textSize(40);
-            text(game.score, 20, 40);
+            text("Score: " + game.score, 80, 40);
             let currentTime = game.maxTime - game.elapsedTime;
-            text(ceil(currentTime), 700, 40);
+            text("Time: " + ceil(currentTime), 700, 40);
             game.elapsedTime += deltaTime / 1000;
 
             if (currentTime < 0) game.state = GameState.GameOver;
