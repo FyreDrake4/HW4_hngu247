@@ -1,4 +1,4 @@
-let spriteSheetFilenames = ["AmongUs.png", "Bug_To_Squish.png"];
+let spriteSheetFilenames = ["AmongUs2.png", "Bug_To_Squish.png"];
 let spriteSheets = [];
 let animations = [];
 let amongUsSprite;
@@ -41,7 +41,7 @@ function reset() {
     game.elapsedTime = 0;
     game.score = 0;
     game.totalSprites = random(20, 40);
-    game.amongUsSprites = random(5, 10);
+    game.amongUsSprites = random(5, 8);
     game.squished = 0;
 
     animations = [];
@@ -66,15 +66,15 @@ function reset() {
     for (let k = 0; k < game.amongUsSprites; k++) {
         animations[i + k] = new WalkingAnimation(
             spriteSheets[0],
-            125,
-            130,
+            128,
+            128,
             random(100, 700),
             random(100, 500),
-            9,
+            8,
             random(1, 1.5),
             6,
             (vertical = 0),
-            0,
+            128,
             0,
             1
         );
@@ -109,6 +109,7 @@ function draw() {
             textSize(35);
             text("Score: " + game.score, 400, 370);
             text("Max Score: " + game.maxScore, 400, 420);
+            text("Press Any Key to Restart", 400, 470);
             break;
         case GameState.Start:
             background(0);
@@ -230,7 +231,11 @@ class WalkingAnimation {
             this.move(this.dy, this.sw, height - this.sw);
         } else {
             this.dx += this.moving * this.speed * (game.squished * 0.15 + 1);
-            this.move(this.dx, this.sw, width - this.sw);
+            if (this.spritesheet === spriteSheets[0]) {
+                this.move(this.dx, this.sw - 80, width - this.sw + 80);
+            } else {
+                this.move(this.dx, this.sw, width - this.sw);
+            }
         }
     }
 
@@ -283,8 +288,8 @@ class WalkingAnimation {
         game.squished++;
         this.dead = 1;
         if (this.spritesheet === spriteSheets[0]) {
-            this.u = 9;
-            this.v = 0;
+            this.u = 1;
+            this.v = 1;
         } else if (this.spritesheet === spriteSheets[1]) {
             this.u = 4;
             this.v = 0;
